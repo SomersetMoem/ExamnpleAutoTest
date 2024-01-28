@@ -1,0 +1,13 @@
+/helpers/helpers.iml
+/.idea/
+/classicSeller/classicSeller.iml
+/classicSeller/test-output/
+/classicSeller/build/
+/classicSeller/target/
+/helpers/target/
+/classicSeller/sample.log
+/target/allure-results/
+/target/
+/classicSeller/src/main/resources/
+/classicSeller/generate.xml
+/classicSeller/TestSuiteFailed.xml
