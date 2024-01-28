@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example</groupId>
+    <artifactId>FrameworkExample</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.plugin.version>3.1.1</maven.plugin.version>
+        <selenium-java.version>4.8.1</selenium-java.version>
+        <selenium-devtools.version>4.1.2</selenium-devtools.version>
+        <maven.compiler.plugin>3.6.1</maven.compiler.plugin>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.checkstyle.plugin>2.17</maven.checkstyle.plugin>
+        <surefire.version>2.22.2</surefire.version>
+        <aspectj.version>1.9.7</aspectj.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <clean.version>3.0.0</clean.version>
+        <testng.version>7.4.0</testng.version>
+        <log4j.version>2.20.0</log4j.version>
+        <selenide.version>6.17.2</selenide.version>
+        <selenide-testng.version>6.12.3</selenide-testng.version>
+        <lombok.version>1.18.24</lombok.version>
+        <allure.version>2.18.1</allure.version>
+        <json.version>20160212</json.version>
+        <json-simple.version>1.1.1</json-simple.version>
+        <qatools.properties-loader.version>1.6</qatools.properties-loader.version>
+        <okhttp.version>5.0.0-alpha.10</okhttp.version>
+        <qatools.ashot.version>1.5.4</qatools.ashot.version>
+        <pdfbox-tools.version>2.0.27</pdfbox-tools.version>
+        <reportng.version>1.1.4</reportng.version>
+        <webdrivermanager.version>5.3.2</webdrivermanager.version>
+        <pdf-test.version>1.8.1</pdf-test.version>
+        <core.version>3.5.1</core.version>
+        <ews-java-api.version>2.0</ews-java-api.version>
+        <slf4j-nop.version>2.0.6</slf4j-nop.version>
+        <selenide-proxy.version>6.14.1</selenide-proxy.version>
+        <guice.version>5.1.0</guice.version>
+        <htmlelements-java.version>1.20.0</htmlelements-java.version>
+        <talk2grid-version>1.2.1</talk2grid-version>
+        <jsoup.version>1.15.4</jsoup.version>
+        <mssql-jdbc.version>9.4.1.jre8</mssql-jdbc.version>
+        <javax.version>1.6.2</javax.version>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>com.codeborne</groupId>
+            <artifactId>selenide</artifactId>
+            <version>${selenide.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.codeborne</groupId>
+            <artifactId>selenide-testng</artifactId>
+            <version>${selenide-testng.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng.version}</version>
+        </dependency>
+
+    </dependencies>
+
+</project>
