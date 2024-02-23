@@ -1,4 +1,4 @@
-package UI;
+package ui;
 
 import com.codeborne.selenide.Selenide;
 import org.testng.annotations.Test;
