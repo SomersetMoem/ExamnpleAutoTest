@@ -20,9 +20,9 @@
         <aspectj.version>1.9.7</aspectj.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <clean.version>3.0.0</clean.version>
-        <testng.version>7.7.0</testng.version>
+        <testng.version>7.4.0</testng.version>
         <log4j.version>2.20.0</log4j.version>
-        <selenide.version>6.17.2</selenide.version>
+        <selenide.version>6.12.3</selenide.version>
         <selenide-testng.version>6.12.3</selenide-testng.version>
         <lombok.version>1.18.24</lombok.version>
         <allure.version>2.18.1</allure.version>
@@ -45,6 +45,7 @@
         <jsoup.version>1.15.4</jsoup.version>
         <mssql-jdbc.version>9.4.1.jre8</mssql-jdbc.version>
         <javax.version>1.6.2</javax.version>
+        <postgresql.version>42.6.0</postgresql.version>
         <javafaker.version>1.0.2</javafaker.version>
     </properties>
 
@@ -54,6 +55,80 @@
             <artifactId>selenide</artifactId>
             <version>${selenide.version}</version>
             <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>ru.yandex.qatools.htmlelements</groupId>
+            <artifactId>htmlelements-java</artifactId>
+            <version>${htmlelements-java.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>ru.yandex.qatools.properties</groupId>
+            <artifactId>properties-loader</artifactId>
+            <version>${qatools.properties-loader.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>${allure.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>${json.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.rationaleemotions</groupId>
+            <artifactId>talk2grid</artifactId>
+            <version>${talk2grid-version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-jdk14</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-nop</artifactId>
+            <version>${slf4j-nop.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${postgresql.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-selenide</artifactId>
+            <version>${allure.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>${webdrivermanager.version}</version>
         </dependency>
 
         <dependency>
@@ -73,6 +148,7 @@
             <artifactId>javafaker</artifactId>
             <version>${javafaker.version}</version>
         </dependency>
+
 
     </dependencies>
 
