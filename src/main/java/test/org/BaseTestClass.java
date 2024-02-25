@@ -8,6 +8,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.Listeners;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import test.org.listeners.TestSuiteListener;
 
 @Listeners({TestSuiteListener.class})
 public class BaseTestClass {

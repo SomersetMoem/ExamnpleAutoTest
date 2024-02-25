@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Appenders>
+        <Console name="console" target="SYSTEM_OUT">
+            <ThresholdFilter level="INFO" onMatch="NORMAL" onMismatch="DENY"/>
+            <PatternLayout
+                    pattern="%d{DATE}: %highlight{%5p}{FATAL=bright blue, ERROR=bright red, WARN=red, INFO=bright black} %20.20C#%4L: %m%n"/>
+        </Console>
+        <Console name="testConsole" target="SYSTEM_OUT">
+            <ThresholdFilter level="DEBUG" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="%highlight{%m%n}{DEBUG=bright black}"/>
+        </Console>
+        <RollingFile name="FileAppender" fileName="sample.log"
+                     filePattern="logs/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz">
+            <PatternLayout>
+                <Pattern>%d{DATE}: %5p %20.20C#%4L: %m%n</Pattern>
+            </PatternLayout>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="20 MB"/>
+            </Policies>
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Logger name="org.uncommons.reportng" level="ERROR"/>
+        <Logger name="org.apache.velocity" level="ERROR"/>
+        <Root level="INFO">
+            <AppenderRef ref="console"/>
+        </Root>
+    </Loggers>
+</Configuration>

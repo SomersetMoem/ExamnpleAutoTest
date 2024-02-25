@@ -1,13 +1,11 @@
 package ui;
 
-import com.codeborne.selenide.Configuration;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class Test_1 {
+public class Test_1 extends BaseSelenideTest {
 
     @Test
     public void test() {
