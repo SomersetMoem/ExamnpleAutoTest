@@ -61,7 +61,7 @@ public class JsonUtils {
 
     public static JSONObject getJsonObjectFromFile(String path) throws IOException {
         try {
-            String dataString = Fil.readFile(path);
+            String dataString = FileUtils.readFile(path);
             return new JSONObject(dataString);
         } catch (IOException var2) {
             LOG.error("Не удалось создать JSON-объект из файла " + path + ": " + var2.getMessage());

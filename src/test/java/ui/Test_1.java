@@ -9,11 +9,6 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class Test_1 {
 
-    @BeforeClass
-    public static void setUp() {
-        Configuration.pageLoadTimeout = 300000;
-    }
-
     @Test
     public void test() {
         open("https://hh.ru/");
