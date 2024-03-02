@@ -8,13 +8,11 @@ import ru.yandex.qatools.htmlelements.annotations.Name;
 import static com.codeborne.selenide.Selenide.$;
 
 public class MainPage extends FieldWorkerPage {
-    @Name("Поле 'Поиск'")
-    private final SelenideElement searchField = $("#searchInput");
-    @Name("Навигационное меню 'Адреса'")
-    private final SelenideElement address = $("[data-wba-header-name='Pick_up_points']");
+@Name("Первая карточка продукта")
+private final SelenideElement firstCardProduct = $("[data-card-index='0']");
 
     public MainPage() {
-        checkPageVisibility(searchField, "Главная");
+        checkPageVisibility(firstCardProduct, "Главная");
     }
 
     public MainPage(boolean open) {
@@ -22,6 +20,6 @@ public class MainPage extends FieldWorkerPage {
             System.out.println("---------------open browser");
             Selenide.open("");
         }
-        checkPageVisibility(searchField, "Главная");
+        checkPageVisibility(firstCardProduct, "Главная");
     }
 }

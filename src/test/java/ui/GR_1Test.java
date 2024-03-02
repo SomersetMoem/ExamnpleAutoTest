@@ -16,7 +16,7 @@ public class GR_1Test extends BaseSelenideTest {
 
 
     @TmsLink("GR-1")
-    @Test(description = "Открытие главной страницы")
+    @Test(description = "Открытие страницы ЛК с главной страницы")
     public void test() {
         step_1();
 
@@ -26,5 +26,10 @@ public class GR_1Test extends BaseSelenideTest {
     @Step("Шаг 1. Открыть главную страницу")
     private void step_1() {
         mainPage = new MainPage(true);
+    }
+
+    @Step("Шаг 2. Нажать кнопку в хэдере 'Войти'")
+    private void step_2() {
+        mainPage.
     }
 }

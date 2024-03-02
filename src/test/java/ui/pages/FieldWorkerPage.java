@@ -6,6 +6,7 @@ import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.testng.Assert;
 
@@ -13,7 +14,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class FieldWorkerPage {
     protected final static Logger LOG = LogManager.getLogger(FieldWorkerPage.class);
-    private String loaderLocator = "Locator";
+    private By loader = By.cssSelector(".general-preloader");
     private static final int LOADER_TIMEOUT_SECONDS = 60;
 
     protected FieldWorkerPage() {
@@ -35,16 +36,16 @@ public class FieldWorkerPage {
     public void getLoader(int waitLoaderSeconds, int loaderTimeoutSeconds) {
         long end = System.currentTimeMillis() + waitLoaderSeconds * 1_000;
         while (System.currentTimeMillis() < end) {
-            if ($$(loaderLocator).filter(Condition.visible).size() > 0) {
+            if ($$(loader).filter(Condition.visible).size() > 0) {
                 long loaderTimeEnd = System.currentTimeMillis() + loaderTimeoutSeconds * 1_000;
-                while (($$(loaderLocator).filter(Condition.visible).size() > 0) && System.currentTimeMillis() < loaderTimeEnd) {
+                while (($$(loader).filter(Condition.visible).size() > 0) && System.currentTimeMillis() < loaderTimeEnd) {
                     sleep(300);
                 }
             } else {
                 sleep(300);
             }
         }
-        Assert.assertFalse(($$(loaderLocator).filter(Condition.visible).size() > 0), "Лоадер не пропал после " + loaderTimeoutSeconds + " секунд");
+        Assert.assertFalse(($$(loader).filter(Condition.visible).size() > 0), "Лоадер не пропал после " + loaderTimeoutSeconds + " секунд");
     }
 
     protected void clickElement(SelenideElement element, int waitLoaderSeconds) {
