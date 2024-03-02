@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Selenide.page;
 public class Header extends FieldWorkerPage {
     private final static Logger LOG = LogManager.getLogger(Header.class);
     @Name("Поле 'Поиск'")
-    private final SelenideElement searchField = $("#searchInput");
+    private final SelenideElement searchField = $("#searchInputw");
     @Name("Навигационное меню 'Адреса'")
     private final SelenideElement addressBtn = $("[data-wba-header-name='Pick_up_points']");
     @Name("Навигационное меню 'Войти'")

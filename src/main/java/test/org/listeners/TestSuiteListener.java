@@ -1,20 +1,44 @@
 package test.org.listeners;
 
-import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-import org.testng.xml.XmlSuite;
-
-import java.io.IOException;
+import test.org.utils.AllureUtils;
 
 public class TestSuiteListener implements ITestListener {
-    private static final String FAILED_TESTS_SUITE_FILE_NAME = "TestSuiteFailed.xml";
-    private static final XmlSuite failSuite = new XmlSuite();
-    private static final Logger LOG = LogManager.getLogger(TestSuiteListener.class);
+    protected final static Logger LOG = LogManager.getLogger(TestSuiteListener.class);
 
-    public TestSuiteListener() {
+    @Override
+    public void onTestStart(ITestResult result) {
+        LOG.info("Starting test: " + result.getName());
     }
 
+    @Override
+    public void onTestSuccess(ITestResult result) {
+        LOG.info("Test passed: " + result.getName());
+    }
+
+    @Override
+    public void onTestFailure(ITestResult result) {
+        LOG.info("Test failed: " + result.getName());
+        AllureUtils.screenshotAs("Failure screenshot");
+        AllureUtils.pageSource();
+    }
+
+    @Override
+    public void onTestSkipped(ITestResult result) {
+        LOG.info("Test skipped: " + result.getName());
+    }
+
+    @Override
+    public void onStart(ITestContext context) {
+        LOG.info("Starting suite: " + context.getName());
+    }
+
+    @Override
+    public void onFinish(ITestContext context) {
+        LOG.info("Finishing suite: " + context.getName());
+    }
 }
