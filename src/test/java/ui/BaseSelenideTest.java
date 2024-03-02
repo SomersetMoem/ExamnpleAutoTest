@@ -22,7 +22,7 @@ public class BaseSelenideTest extends BaseTestClass {
         pageLoadTimeout = 60_000;
 
         if (getProperty("browser") != null)
-            browser = getProperty("browser", "chrome").toLowerCase();
+            browser = getProperty("browser", "firefox").toLowerCase();
     }
 
     @BeforeTest(alwaysRun = true)

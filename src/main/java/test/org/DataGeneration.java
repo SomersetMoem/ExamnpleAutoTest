@@ -5,7 +5,7 @@ import test.org.utils.JsonUtils;
 import java.io.IOException;
 import java.util.List;
 
-public class PolicyGeneration {
+public class DataGeneration {
     public <T> T generatePolicyData(String filePath, Class<T> type) throws IOException {
         return JsonUtils.getObjectFromFile(filePath, type);
     }
