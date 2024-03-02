@@ -91,7 +91,9 @@ public class FieldWorkerPage {
         return false;
     }
 
-
+    public void checkPageVisibility(SelenideElement element, String namePage) {
+        $(element).shouldBe(Condition.visible.because("Страница '" + namePage + "' не открылась"));
+    }
 
 
 
