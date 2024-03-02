@@ -7,7 +7,6 @@ import io.qameta.allure.TmsLink;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import ui.pages.Header;
-import ui.pages.LoginPage;
 import ui.pages.MainPage;
 
 @Epic("UI")
@@ -16,8 +15,6 @@ public class GR_1Test extends BaseSelenideTest {
     private SoftAssert soft = new SoftAssert();
     private MainPage mainPage;
     private Header header;
-    private LoginPage loginPage;
-
 
     @TmsLink("GR-1")
     @Test(description = "Открытие страницы ЛК с главной страницы")

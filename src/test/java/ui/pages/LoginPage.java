@@ -3,7 +3,6 @@ package ui.pages;
 import com.codeborne.selenide.SelenideElement;
 import ru.yandex.qatools.htmlelements.annotations.Name;
 
-import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
 public class LoginPage extends FieldWorkerPage {
@@ -12,5 +11,6 @@ public class LoginPage extends FieldWorkerPage {
 
     public LoginPage() {
         checkPageVisibility(title, "Войти или создать профиль");
+        logUrl();
     }
 }

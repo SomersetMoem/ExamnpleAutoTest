@@ -11,6 +11,7 @@ import org.openqa.selenium.Keys;
 import org.testng.Assert;
 
 import static com.codeborne.selenide.Selenide.*;
+import static test.org.utils.BrowserUtils.getDriver;
 
 public class FieldWorkerPage {
     protected final static Logger LOG = LogManager.getLogger(FieldWorkerPage.class);
@@ -29,6 +30,7 @@ public class FieldWorkerPage {
     private boolean isPage(Object object) {
         return object.getClass().getSuperclass() == FieldWorkerPage.class;
     }
+
     public void getLoader(int waitLoaderSeconds) {
         getLoader(waitLoaderSeconds, LOADER_TIMEOUT_SECONDS);
     }
@@ -52,7 +54,7 @@ public class FieldWorkerPage {
         $(element).shouldBe(Condition.and("Требуемый элемент отсутсвует на экране",
                         Condition.visible,
                         Condition.exist))
-                        .click();
+                .click();
         getLoader(waitLoaderSeconds);
     }
 
@@ -70,8 +72,7 @@ public class FieldWorkerPage {
             while (tries > 0 && !done) {
                 if ($(element).getValue().equals(expectedValue)) {
                     done = true;
-                }
-                else {
+                } else {
                     setValue(element, value, waitLoaderSeconds);
                     tries--;
                 }
@@ -81,7 +82,7 @@ public class FieldWorkerPage {
     }
 
     protected boolean waitUntilVisible(ElementsCollection element, int count, int validationTimeoutSeconds) {
-        long end = System.currentTimeMillis() + validationTimeoutSeconds*1_000;
+        long end = System.currentTimeMillis() + validationTimeoutSeconds * 1_000;
         while (System.currentTimeMillis() < end) {
             if ($$(element).filter(Condition.visible).size() != count) {
                 sleep(300);
@@ -96,6 +97,13 @@ public class FieldWorkerPage {
         $(element).shouldBe(Condition.visible.because("Страница '" + namePage + "' не открылась"));
     }
 
+    protected void logUrl() {
+        if (WebDriverRunner.hasWebDriverStarted()) {
+            LOG.info("Перешли на страницу c URL: " + getDriver().getCurrentUrl());
+        }
+    }
 
-
+    protected boolean elementIsVisible(SelenideElement element) {
+        return $(element).exists() && $(element).scrollTo().isDisplayed();
+    }
 }
