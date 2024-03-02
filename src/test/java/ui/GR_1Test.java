@@ -6,6 +6,8 @@ import io.qameta.allure.Step;
 import io.qameta.allure.TmsLink;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
+import ui.pages.Header;
+import ui.pages.LoginPage;
 import ui.pages.MainPage;
 
 @Epic("UI")
@@ -13,12 +15,15 @@ import ui.pages.MainPage;
 public class GR_1Test extends BaseSelenideTest {
     private SoftAssert soft = new SoftAssert();
     private MainPage mainPage;
+    private Header header;
+    private LoginPage loginPage;
 
 
     @TmsLink("GR-1")
     @Test(description = "Открытие страницы ЛК с главной страницы")
     public void test() {
         step_1();
+        step_2();
 
         soft.assertAll();
     }
@@ -26,10 +31,11 @@ public class GR_1Test extends BaseSelenideTest {
     @Step("Шаг 1. Открыть главную страницу")
     private void step_1() {
         mainPage = new MainPage(true);
+        header = new Header();
     }
 
     @Step("Шаг 2. Нажать кнопку в хэдере 'Войти'")
     private void step_2() {
-        mainPage.
+        header.clickLoginBtn(3);
     }
 }
