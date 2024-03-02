@@ -16,4 +16,12 @@ public class MainPage extends FieldWorkerPage {
     public MainPage() {
         checkPageVisibility(searchField, "Главная");
     }
+
+    public MainPage(boolean open) {
+        if (open) {
+            System.out.println("---------------open browser");
+            Selenide.open("");
+        }
+        checkPageVisibility(searchField, "Главная");
+    }
 }
