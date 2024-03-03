@@ -106,4 +106,11 @@ public class FieldWorkerPage {
     protected boolean elementIsVisible(SelenideElement element) {
         return $(element).exists() && $(element).scrollTo().isDisplayed();
     }
+
+    protected void pauseCharacterEntryInField(SelenideElement field, String text, int time) {
+        for (char symbol : text.toCharArray()) {
+            field.sendKeys(String.valueOf(symbol));
+            sleep(time);
+        }
+    }
 }
