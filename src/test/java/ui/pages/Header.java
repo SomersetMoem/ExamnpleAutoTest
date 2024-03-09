@@ -19,7 +19,7 @@ public class Header extends FieldWorkerPage {
     private final SelenideElement loginBtn = $("[data-wba-header-name='Login']");
 
     public Header() {
-        checkPageVisibility(searchField, "Хэдер");
+        checkElementInPageVisibility(searchField, "Хэдер");
     }
 
     @Step("Нажать кнопку 'Войти'")
