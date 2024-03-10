@@ -26,14 +26,20 @@ public class GR_2Test extends BaseSelenideTest {
 
     @DataProvider(name = "data-provider")
     public Object[][] testData() throws IOException {
-        Product product = dataGeneration.generateTestData("src/test/resource/dataTest/GR_2.json", Product.class);
+        DataGeneration dataGeneration = new DataGeneration();
+        Product product = dataGeneration.generateTestData("src\\test\\resources\\dataTest\\GR_2.json", Product.class);
         return new Object[][]{{product}};
     }
 
-    @TmsLink("GR-1")
-    @Test(description = "Добавление товара в корзину, если пользователь не авторизирован")
+    @TmsLink("GR-2")
+    @Test(description = "Добавление товара в корзину, если пользователь не авторизирован", dataProvider = "data-provider")
     public void test(Product product) {
-
+        step_1();
+        step_2();
+        step_3();
+        step_4();
+        step_5(product);
+        step_6(product);
 
         soft.assertAll();
     }
@@ -61,6 +67,16 @@ public class GR_2Test extends BaseSelenideTest {
 
     @Step("Шаг 5. Добавить товар в корзину")
     private void step_5(Product product) {
-        basketPage.clickBackMainBtnBtn()
+        product.setName(mainPage.getNameFirstProduct());
+
+        mainPage.clickAddToBasketBtn(product.getName(), 1)
+                .checkTextAddToBasketBtn("В корзине",product.getName(), soft);
+    }
+
+    @Step("Шаг 6. Перейти в корзину и проверить, что товар добавлен")
+    private void step_6(Product product) {
+        basketPage = header.clickBasketBtn(3, soft);
+
+        basketPage.checkVisibleCardProduct(product.getName(), soft);
     }
 }

@@ -52,9 +52,8 @@ public class FieldWorkerPage {
 
     protected void clickElement(SelenideElement element, int waitLoaderSeconds) {
         $(element).shouldBe(Condition.and("Требуемый элемент отсутсвует на экране",
-                        Condition.visible,
-                        Condition.exist))
-                .click();
+                Condition.visible,
+                Condition.exist)).click();
         getLoader(waitLoaderSeconds);
     }
 
