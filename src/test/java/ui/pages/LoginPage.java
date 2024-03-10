@@ -10,7 +10,7 @@ public class LoginPage extends FieldWorkerPage {
     private final SelenideElement title = $x("//h2[contains(text(), 'Войти или создать профиль')]");
 
     public LoginPage() {
-        checkPageVisibility(title, "Войти или создать профиль");
+        checkElementInPageVisibility(title, "Войти или создать профиль");
         logUrl();
     }
 }
