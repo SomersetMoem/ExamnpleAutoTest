@@ -33,6 +33,12 @@ public class Header extends FieldWorkerPage {
     }
 
     @Step("Нажать кнопку 'Корзина'")
+    public EmpBasketPage clickBasketBtnReturnEmptyBasket(int waitLoader, SoftAssert soft) {
+        LOG.info("Нажать кнопку 'Корзина'");
+        clickElement(basketBtn, waitLoader);
+        return page(new EmpBasketPage(soft));
+    }
+    @Step("Нажать кнопку 'Корзина'")
     public BasketPage clickBasketBtn(int waitLoader, SoftAssert soft) {
         LOG.info("Нажать кнопку 'Корзина'");
         clickElement(basketBtn, waitLoader);

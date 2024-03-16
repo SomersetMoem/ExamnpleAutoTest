@@ -96,6 +96,10 @@ public class FieldWorkerPage {
         $(element).shouldBe(Condition.visible.because("Страница '" + namePage + "' не открылась"));
     }
 
+
+    public void checkFirstElementInPageVisibility(ElementsCollection element, String namePage) {
+        $(element.first()).shouldBe(Condition.visible.because("Страница '" + namePage + "' не открылась"));
+    }
     protected void logUrl() {
         if (WebDriverRunner.hasWebDriverStarted()) {
             LOG.info("Перешли на страницу c URL: " + getDriver().getCurrentUrl());

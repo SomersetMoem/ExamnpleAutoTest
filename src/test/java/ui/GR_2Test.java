@@ -10,6 +10,7 @@ import org.testng.asserts.SoftAssert;
 import test.org.DataGeneration;
 import test.org.models.Product;
 import ui.pages.BasketPage;
+import ui.pages.EmpBasketPage;
 import ui.pages.Header;
 import ui.pages.MainPage;
 
@@ -19,10 +20,11 @@ import java.io.IOException;
 @Feature("Main")
 public class GR_2Test extends BaseSelenideTest {
     private SoftAssert soft = new SoftAssert();
-    private DataGeneration dataGeneration = new DataGeneration();
     private MainPage mainPage;
     private Header header;
     private BasketPage basketPage;
+    private EmpBasketPage empBasketPage;
+
 
     @DataProvider(name = "data-provider")
     public Object[][] testData() throws IOException {
@@ -52,17 +54,17 @@ public class GR_2Test extends BaseSelenideTest {
 
     @Step("Шаг 2. Нажать кнопку 'Корзина'")
     private void step_2() {
-      basketPage = header.clickBasketBtn(3, soft);
+        empBasketPage = header.clickBasketBtnReturnEmptyBasket(3, soft);
     }
 
     @Step("Шаг 3. Проверить, что корзина пустая")
     private void step_3() {
-        basketPage.checkBasketIsEmpty(true, soft);
+        empBasketPage.checkBasketIsEmpty(true, soft);
     }
 
     @Step("Шаг 4. Вернутся на главную страницу с помощью кнопки 'Перейти на главную'")
     private void step_4() {
-        mainPage = basketPage.clickBackMainBtnBtn(3);
+        mainPage = empBasketPage.clickBackMainBtn(3);
     }
 
     @Step("Шаг 5. Добавить товар в корзину")
@@ -70,7 +72,7 @@ public class GR_2Test extends BaseSelenideTest {
         product.setName(mainPage.getNameFirstProduct());
 
         mainPage.clickAddToBasketBtn(product.getName(), 1)
-                .checkTextAddToBasketBtn("В корзине",product.getName(), soft);
+                .checkTextAddToBasketBtn(product.getName(), soft,"В корзине", "Завтра");
     }
 
     @Step("Шаг 6. Перейти в корзину и проверить, что товар добавлен")
