@@ -1,10 +1,11 @@
-package test.org;
+package test.org.utils;
 
 import lombok.Getter;
 import lombok.Setter;
-import ru.yandex.qatools.properties.PropertyLoader;
 import ru.yandex.qatools.properties.annotations.Property;
 import ru.yandex.qatools.properties.annotations.Resource;
+
+import static ru.yandex.qatools.properties.PropertyLoader.populate;
 
 @Getter
 @Setter
@@ -28,7 +29,7 @@ public class Config {
     private static String userPassword;
 
     private Config() {
-        PropertyLoader.populate(this);
+        populate(this);
     }
 
     public static Config getInstance() {

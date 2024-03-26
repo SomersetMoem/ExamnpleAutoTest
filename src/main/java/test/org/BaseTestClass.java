@@ -3,16 +3,17 @@ package test.org;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
 import com.codeborne.selenide.testng.ScreenShooter;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Listeners;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import test.org.listeners.TestSuiteListener;
+import test.org.utils.Config;
 
 @Listeners({TestSuiteListener.class})
 public class BaseTestClass {
-    protected final static  Logger LOG = LogManager.getLogger(BaseTestClass.class);
+    protected final static Logger LOG = LogManager.getLogger(BaseTestClass.class);
     protected Config config = Config.getInstance();
 
     public BaseTestClass() {

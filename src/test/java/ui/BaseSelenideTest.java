@@ -10,7 +10,6 @@ import test.org.BaseTestClass;
 import test.org.listeners.TestSuiteListener;
 
 import static com.codeborne.selenide.Configuration.*;
-import static com.codeborne.selenide.Configuration.browser;
 import static java.lang.System.getProperty;
 
 @Listeners({TestSuiteListener.class})
@@ -21,8 +20,9 @@ public class BaseSelenideTest extends BaseTestClass {
         timeout = 20_000;
         pageLoadTimeout = 60_000;
 
-        if (getProperty("browser") != null)
+        if (getProperty("browser") != null) {
             browser = getProperty("browser", "firefox").toLowerCase();
+        }
     }
 
     @BeforeTest(alwaysRun = true)
