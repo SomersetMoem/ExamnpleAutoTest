@@ -47,6 +47,7 @@
         <javax.version>1.6.2</javax.version>
         <postgresql.version>42.6.0</postgresql.version>
         <javafaker.version>1.0.2</javafaker.version>
+        <aeonbits.version>1.0.10</aeonbits.version>
     </properties>
 
     <dependencies>
@@ -61,6 +62,12 @@
             <groupId>ru.yandex.qatools.htmlelements</groupId>
             <artifactId>htmlelements-java</artifactId>
             <version>${htmlelements-java.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.aeonbits.owner</groupId>
+            <artifactId>owner</artifactId>
+            <version>${aeonbits.version}</version>
         </dependency>
 
         <dependency>

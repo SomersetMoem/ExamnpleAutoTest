@@ -3,21 +3,22 @@ package test.org;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
 import com.codeborne.selenide.testng.ScreenShooter;
+import org.aeonbits.owner.ConfigFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Listeners;
 import test.org.listeners.TestSuiteListener;
-import test.org.utils.Config;
+import test.org.utils.AppConfig;
 
 @Listeners({TestSuiteListener.class})
 public class BaseTestClass {
     protected final static Logger LOG = LogManager.getLogger(BaseTestClass.class);
-    protected Config config = Config.getInstance();
+    protected AppConfig appConfig = ConfigFactory.create(AppConfig.class);
 
     public BaseTestClass() {
-        Configuration.browser = config.getBrowser();
+        Configuration.browser = appConfig.browser();
         ScreenShooter.captureSuccessfulTests = true;
         Configuration.savePageSource = false;
         Configuration.screenshots = true;

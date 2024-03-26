@@ -14,9 +14,8 @@ import static java.lang.System.getProperty;
 
 @Listeners({TestSuiteListener.class})
 public class BaseSelenideTest extends BaseTestClass {
-
     public BaseSelenideTest() {
-        baseUrl = config.getWebUrl();
+        baseUrl = appConfig.webUrl();
         timeout = 20_000;
         pageLoadTimeout = 60_000;
 
