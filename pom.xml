@@ -48,6 +48,8 @@
         <postgresql.version>42.6.0</postgresql.version>
         <javafaker.version>1.0.2</javafaker.version>
         <aeonbits.version>1.0.10</aeonbits.version>
+        <restassured.version>3.3.0</restassured.version>
+        <hamcrest.version>2.1</hamcrest.version>
     </properties>
 
     <dependencies>
@@ -168,8 +170,27 @@
             <version>${javafaker.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>${restassured.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest</artifactId>
+            <version>${hamcrest.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-rest-assured</artifactId>
+            <version>${allure.version}</version>
+        </dependency>
+
 
     </dependencies>
+
     <reporting>
         <excludeDefaults>true</excludeDefaults>
         <plugins>
