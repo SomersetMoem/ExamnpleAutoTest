@@ -31,6 +31,7 @@ public class EmpBasketPage extends FieldWorkerPage {
         return this;
     }
 
+
     @Step("Нажать кнопку 'Вернуться на главную'")
     public MainPage clickBackMainBtn(int waitLoader) {
         LOG.info("Нажать кнопку 'Вернуться на главную'");
