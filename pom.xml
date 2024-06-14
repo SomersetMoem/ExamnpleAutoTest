@@ -48,7 +48,7 @@
         <postgresql.version>42.6.0</postgresql.version>
         <javafaker.version>1.0.2</javafaker.version>
         <aeonbits.version>1.0.10</aeonbits.version>
-        <restassured.version>5.4.0</restassured.version>
+        <restassured.version>3.3.0</restassured.version>
         <hamcrest.version>2.1</hamcrest.version>
     </properties>
 
@@ -186,12 +186,6 @@
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-rest-assured</artifactId>
             <version>${allure.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>RELEASE</version>
-            <scope>compile</scope>
         </dependency>
 
 

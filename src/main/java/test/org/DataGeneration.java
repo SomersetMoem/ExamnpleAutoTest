@@ -1,6 +1,5 @@
 package test.org;
 
-
 import test.org.utils.JsonUtils;
 
 import java.io.IOException;
